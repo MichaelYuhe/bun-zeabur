@@ -1,8 +1,10 @@
+import figlet from "figlet";
 
 const server = Bun.serve({
-  port: process.env.PORT,
+  port: process.env.PORT || 3000,
   fetch() {
-    return new Response(`Bun on Zeabur`);
+    const body = figlet.textSync('Bun on Zeabur!');
+    return new Response(body);
   },
 });
 
